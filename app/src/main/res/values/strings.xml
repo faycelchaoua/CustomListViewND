@@ -25,5 +25,8 @@
     <string name="powerpoint_description">Logiciel de présentation</string>
     <string name="outlook">Outlook</string>
     <string name="outlook_description">Client de courrier électronique</string>
+    <string name="adb_start_message">Vous avez choisi</string>
+    <string name="adb_title">Choix du Produit</string>
+    <string name="adb_btn_ok">OK</string>
 
 </resources>

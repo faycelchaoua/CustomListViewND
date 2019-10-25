@@ -42,8 +42,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        /* Fin Drawer Navigation */
 
-        // ListView
+        /* ListView */
         // Récupération de la "ListView" créée dans le fichier activity_main.xml
         maListViewPerso = findViewById(R.id.listviewperso);
 
@@ -94,29 +95,30 @@ public class MainActivity extends AppCompatActivity
 
         // Interaction avec les items de la liste
         maListViewPerso.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @SuppressWarnings("unchecked")
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HashMap<String, String> item = (HashMap<String, String>) maListViewPerso.getItemAtPosition(position);
-                Toast.makeText(MainActivity.this, item.get("title"), Toast.LENGTH_SHORT).show();
+                HashMap item = (HashMap) maListViewPerso.getItemAtPosition(position);
+                Toast.makeText(MainActivity.this, "" + item.get("title"),
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
         maListViewPerso.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @SuppressWarnings("unchecked")
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                HashMap<String, String> item = (HashMap<String, String>) maListViewPerso.getItemAtPosition(position);
+                HashMap item = (HashMap) maListViewPerso.getItemAtPosition(position);
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-                builder.setTitle("Choix du Produit  ");
-                builder.setMessage("Vous avez choisi : " + item.get("title"));
+                builder.setTitle(getString(R.string.adb_title));
+                builder.setMessage(getString(R.string.adb_start_message) + " : " + item.get("title"));
                 builder.setIcon(R.drawable.office);
-                builder.setPositiveButton("Ok", null);
+                builder.setPositiveButton(getString(R.string.adb_btn_ok), null);
                 builder.show();
                 return true;
             }
         });
+        /* Fin ListView */
     }
 
     @Override
@@ -143,7 +145,7 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        // noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -160,15 +162,15 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            // Handle the gallery action
         } else if (id == R.id.nav_slideshow) {
-
+            // Handle the slideshow action
         } else if (id == R.id.nav_manage) {
-
+            // Handle the manage action
         } else if (id == R.id.nav_share) {
-
+            // Handle the share action
         } else if (id == R.id.nav_send) {
-
+            // Handle the send action
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
